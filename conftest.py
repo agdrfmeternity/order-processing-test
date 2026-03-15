@@ -4,6 +4,7 @@ import time
 import requests
 import allure
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from mock_server.app import run
 from services.postgres_client import PostgresClient
 from services.corba_client import OrderService
@@ -22,8 +23,15 @@ def server():
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(options=options)
+
     yield driver
+
     driver.quit()
 
 @pytest.fixture
