@@ -1,0 +1,7 @@
+pytest
+selenium
+psycopg2-binary
+allure-pytest
+python-dotenv
+flask
+requests

@@ -1,0 +1,9 @@
+module OrderSystem {
+
+    interface OrderService {
+
+        void prepareOrder(in long orderId);
+
+    };
+
+};
